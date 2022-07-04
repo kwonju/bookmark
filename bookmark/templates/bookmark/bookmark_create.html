@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    
+    {% block title %}Bookmark Add{% endblock %}
+
+    {% block content %}
+    <form action="" method="post"> 
+        <!-- form 태그, html로부터 서버로 자료를 전달하기 위한 코드
+            action 메서드, 자료를 전달한 대상 페이지, 비워둘 경우 현재 페이지로 전달
+            method, HTTP 메서드 종류 설정-->
+        {% csrf_token %}
+        {{form.as_p}} 
+        <!-- form.as_p 클래스형 뷰의 옵션값,
+            설정한 필드를 출력하는데 각 필드 폼 태그들을 p 태그로 감싸 출력하는 코드-->
+        <input type="submit" value="Add" class="btn btn-info btn-sm">
+    </form>
+    {% endblock %}
+</body>
+</html>
